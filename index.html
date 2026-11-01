@@ -92,7 +92,7 @@
                 <label>Waktu *<input id="obsTime" type="time" required></label>
                 <label>Nama pelapor *<input id="obsReporter" required maxlength="100" placeholder="Masukkan nama pelapor"></label>
                 <label>Unit kerja *<select id="obsUnit" required><option value="">Pilih unit kerja</option></select></label>
-                <label>Lokasi kerja *<input id="obsLocation" list="obsLocationOptions" required maxlength="120" placeholder="Contoh: Stasiun Boiler / Afdeling 2"><datalist id="obsLocationOptions"></datalist></label>
+                <div id="locationField"><label>Lokasi kerja *<select id="obsLocationSelect"><option value="">Pilih lokasi kerja</option><option value="__OTHER__">Lainnya (isi manual)</option></select></label><label id="otherLocationField" hidden>Masukkan lokasi kerja<input id="obsLocationManual" maxlength="120" placeholder="Ketik lokasi kerja secara manual"></label></div>
                 <div id="estateFields" class="conditional-fields wide-field" hidden>
                   <label>Divisi *<input id="obsDivision" list="obsDivisionOptions" maxlength="80" placeholder="Pilih atau ketik divisi"><datalist id="obsDivisionOptions"></datalist></label>
                   <label>Blok *<input id="obsBlock" list="obsBlockOptions" maxlength="80" placeholder="Pilih atau ketik nomor blok"><datalist id="obsBlockOptions"></datalist></label>
