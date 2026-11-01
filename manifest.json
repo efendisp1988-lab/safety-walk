@@ -1,1 +1,25 @@
-{"id":"./","name":"Safety Walk","short_name":"Safety Walk","description":"Aplikasi observasi keselamatan kerja offline","lang":"id","start_url":"./","scope":"./","display":"standalone","orientation":"portrait","background_color":"#f3f6f4","theme_color":"#123b2b"}
+{
+  "id": "./",
+  "name": "Safety Walk",
+  "short_name": "Safety Walk",
+  "description": "Aplikasi observasi keselamatan kerja offline",
+  "lang": "id",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3f6f4",
+  "theme_color": "#123b2b",
+  "icons": [
+    {
+      "src": "./assets/safety-walk-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ]
+}
