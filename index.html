@@ -92,21 +92,12 @@
                 <label>Waktu *<input id="obsTime" type="time" required></label>
                 <label>Nama pelapor *<input id="obsReporter" required maxlength="100" placeholder="Masukkan nama pelapor"></label>
                 <label>Unit *<input id="obsUnit" required maxlength="100" placeholder="Masukkan unit kerja secara manual"></label>
+                <label>Lokasi *<input id="obsLocation" required maxlength="160" placeholder="Masukkan area / lokasi temuan"></label>
                 
                 <label>Jabatan / Posisi<input id="obsPosition" maxlength="100" placeholder="Masukkan jabatan atau posisi"></label>
                 <label>Jenis observasi *<select id="obsType" required><option value="">Pilih jenis observasi</option><option value="UNSAFE ACTION">Unsafe Action</option><option value="UNSAFE CONDITION">Unsafe Condition</option></select></label>
                 <label class="wide-field">Klasifikasi temuan *<select id="obsCategory" required disabled><option value="">Pilih jenis observasi terlebih dahulu</option></select></label>
-                <div class="wide-field observation-description-box">
-                  <label for="obsArea">Uraian Temuan — Area *</label>
-                  <select id="obsArea" required><option value="">Pilih area temuan</option><option value="Kebun">Kebun</option><option value="Pabrik">Pabrik</option><option value="Bulking">Bulking</option><option value="Workshop Central">Workshop Central</option><option value="Lainnya">Lainnya</option></select>
-                  <div id="estateFields" class="conditional-fields" hidden>
-                    <label>Divisi *<input id="obsDivision" list="obsDivisionOptions" maxlength="80" placeholder="Pilih atau ketik divisi"><datalist id="obsDivisionOptions"></datalist></label>
-                    <label>Blok *<input id="obsBlock" list="obsBlockOptions" maxlength="80" placeholder="Pilih atau ketik nomor blok"><datalist id="obsBlockOptions"></datalist></label>
-                  </div>
-                  <label id="otherAreaField" hidden>Lokasi / bagian *<input id="obsAreaManual" maxlength="160" placeholder="Masukkan lokasi atau bagian secara manual"></label>
-                  <label for="obsDescription">Deskripsi temuan *</label>
-                  <textarea id="obsDescription" required rows="4" maxlength="2000" placeholder="Jelaskan kondisi atau tindakan tidak aman yang ditemukan..."></textarea>
-                </div>
+                <label class="wide-field">Uraian Temuan *<textarea id="obsDescription" required rows="5" maxlength="2000" placeholder="Jelaskan kondisi atau tindakan tidak aman yang ditemukan..."></textarea></label>
                 <div class="wide-field recommendation-box">
                   <label for="recommendationInput">Rekomendasi</label>
                   <div class="recommendation-entry"><input id="recommendationInput" maxlength="500" placeholder="Masukkan satu rekomendasi..."><button id="addRecommendationBtn" class="secondary-btn" type="button">+ Tambah</button></div>
