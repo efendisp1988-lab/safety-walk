@@ -66,6 +66,7 @@
         <aside class="sidebar">
           <span class="side-caption">MENU UTAMA</span>
           <button class="side-link active" data-page="dashboard"><span>▦</span> Dashboard</button>
+          <button class="side-link" data-page="observations"><span>☑</span> Observasi K3</button>
           <button class="side-link" data-page="users" id="usersMenu" hidden><span>♙</span> Manajemen Pengguna</button>
           <button class="side-link" data-page="master" id="masterMenu" hidden><span>⚙</span> Master Data</button>
           <div class="side-tip"><b>Safety starts with us.</b><p>Amati kondisi, lakukan tindakan, pastikan perbaikan.</p></div>
@@ -76,6 +77,34 @@
             <div class="welcome-banner"><div><span>SAFETY WALK</span><h3>Keselamatan adalah tanggung jawab kita bersama.</h3><p>Mulai dari melihat potensi bahaya, mencatat temuan, hingga memastikan tindakan perbaikan.</p></div><div class="banner-icon">✓</div></div>
             <div class="stat-grid"><article class="stat-card"><span>Total Observasi</span><b id="statTotal">0</b><small>Seluruh catatan</small></article><article class="stat-card"><span>Temuan Open</span><b id="statOpen">0</b><small>Perlu tindak lanjut</small></article><article class="stat-card"><span>Dalam Proses</span><b id="statProgress">0</b><small>Sedang diperbaiki</small></article><article class="stat-card"><span>Verified</span><b id="statVerified">0</b><small>Telah diverifikasi</small></article></div>
             <div class="section-card"><div><h3>Modul aplikasi</h3><p class="muted">Modul berikut akan diaktifkan pada tahap pengembangan selanjutnya.</p></div><div class="module-grid"><div class="module-item"><span>☑</span><b>Observasi K3</b><small>Unsafe Action &amp; Condition</small></div><div class="module-item"><span>↗</span><b>Monitoring Temuan</b><small>Tindak lanjut perbaikan</small></div><div class="module-item"><span>▤</span><b>Laporan</b><small>Ekspor PDF &amp; Excel</small></div><div class="module-item"><span>⚙</span><b>Pengaturan</b><small>Master data aplikasi</small></div></div></div>
+          </section>
+          <section id="observationsPage" class="page" hidden>
+            <div class="page-heading"><div><span class="step-label">PENCATATAN TEMUAN</span><h2>Observasi K3</h2><p class="muted">Catat tindakan dan kondisi tidak aman di area kerja.</p></div><button id="newObservationBtn" class="primary-btn" type="button">+ Observasi Baru</button></div>
+            <div id="observationFormCard" class="section-card">
+              <div class="section-title"><div><h3>Form Observasi K3</h3><p class="muted">Lengkapi temuan dan dokumentasi kondisi lapangan.</p></div><span class="count-pill">Wajib diisi *</span></div>
+              <form id="observationForm" class="observation-form">
+                <label>Nomor observasi<input id="obsNumber" readonly></label>
+                <label>Tanggal *<input id="obsDate" type="date" required></label>
+                <label>Waktu *<input id="obsTime" type="time" required></label>
+                <label>Nama pelapor<input id="obsReporter" readonly></label>
+                <label>Unit kerja *<select id="obsUnit" required><option value="">Pilih unit kerja</option></select></label>
+                <label>Lokasi kerja *<input id="obsLocation" list="obsLocationOptions" required maxlength="120" placeholder="Contoh: Stasiun Boiler / Afdeling 2"><datalist id="obsLocationOptions"></datalist></label>
+                <label>Jabatan / Posisi<input id="obsPosition" maxlength="100" placeholder="Masukkan jabatan atau posisi"></label>
+                <label>Jenis observasi *<select id="obsType" required><option value="">Pilih jenis observasi</option><option value="UNSAFE ACTION">Unsafe Action</option><option value="UNSAFE CONDITION">Unsafe Condition</option></select></label>
+                <label class="wide-field">Klasifikasi temuan *<select id="obsCategory" required disabled><option value="">Pilih jenis observasi terlebih dahulu</option></select></label>
+                <label class="wide-field">Uraian temuan *<textarea id="obsDescription" required rows="4" maxlength="2000" placeholder="Jelaskan kondisi atau tindakan tidak aman yang ditemukan..."></textarea></label>
+                <label class="wide-field">Rekomendasi tindakan awal<textarea id="obsRecommendation" rows="3" maxlength="1500" placeholder="Tuliskan tindakan pengendalian atau perbaikan yang disarankan..."></textarea></label>
+                <div class="photo-field"><label>Foto sebelum perbaikan<input id="obsPhotoBefore" type="file" accept="image/*" capture="environment"></label><small>Ambil foto langsung atau pilih dari galeri.</small><img id="obsBeforePreview" class="photo-preview" alt="Pratinjau foto sebelum" hidden></div>
+                <div class="photo-field"><label>Foto sesudah perbaikan<input id="obsPhotoAfter" type="file" accept="image/*" capture="environment"></label><small>Foto sesudah dapat ditambahkan saat perbaikan dilakukan.</small><img id="obsAfterPreview" class="photo-preview" alt="Pratinjau foto sesudah" hidden></div>
+                <div class="form-actions wide-field"><button id="cancelObservationBtn" class="secondary-btn" type="button">Batal</button><button class="primary-btn" type="submit">Simpan Observasi</button></div>
+              </form>
+              <div id="observationMessage" class="message" role="status"></div>
+            </div>
+            <div class="section-card">
+              <div class="section-title"><div><h3>Daftar Observasi</h3><p class="muted">Temuan yang tersimpan pada perangkat ini.</p></div><span id="observationCount" class="count-pill">0 temuan</span></div>
+              <div class="observation-filter"><input id="observationSearch" type="search" placeholder="Cari nomor, unit, lokasi, atau uraian..."><select id="observationStatusFilter"><option value="">Semua status</option><option>OPEN</option><option>IN PROGRESS</option><option>CLOSED</option><option>VERIFIED</option></select></div>
+              <div id="observationList" class="observation-list"><p class="empty-state">Belum ada observasi. Tekan tombol Observasi Baru untuk mulai mencatat.</p></div>
+            </div>
           </section>
           <section id="usersPage" class="page" hidden>
             <div class="page-heading"><div><span class="step-label">SUPER ADMIN</span><h2>Manajemen Pengguna</h2><p class="muted">Buat dan kelola akun yang dapat mengakses Safety Walk di perangkat ini.</p></div></div>
