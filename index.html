@@ -89,7 +89,7 @@
                 <label>Nomor observasi<input id="obsNumber" readonly></label>
                 <label>Tanggal *<input id="obsDate" type="date" required></label>
                 <label>Waktu *<input id="obsTime" type="time" required></label>
-                <label>Nama pelapor<input id="obsReporter" readonly></label>
+                <label>Nama pelapor *<input id="obsReporter" required maxlength="100" placeholder="Masukkan nama pelapor"></label>
                 <label>Unit kerja *<select id="obsUnit" required><option value="">Pilih unit kerja</option></select></label>
                 <label>Lokasi kerja *<input id="obsLocation" list="obsLocationOptions" required maxlength="120" placeholder="Contoh: Stasiun Boiler / Afdeling 2"><datalist id="obsLocationOptions"></datalist></label>
                 <div id="estateFields" class="conditional-fields wide-field" hidden>
