@@ -1,18 +1,23 @@
 # Safety Walk
 
-Aplikasi observasi keselamatan kerja yang dirancang untuk penggunaan offline di perangkat Android.
+Aplikasi observasi dan monitoring K3 untuk lingkungan Kebun, PKS, Bulking, dan Workshop.
 
-## Prinsip
-- Nama aplikasi: Safety Walk
-- Offline-first: data lokal menggunakan IndexedDB
-- PWA: dapat dipasang dari browser Android setelah di-host melalui HTTPS
-- Login lokal multi-user dengan akun yang dikelola Super Admin
-- Master data Unsafe Action dan Unsafe Condition dapat disesuaikan Super Admin
-- Dokumentasi foto sebelum dan sesudah
-- Ekspor laporan PDF dan Excel
+## Teknologi
+- Progressive Web App (PWA), mobile-first.
+- Penyimpanan lokal menggunakan IndexedDB.
+- Service Worker untuk cache aplikasi dan penggunaan offline setelah kunjungan pertama.
+- Login lokal; tidak memerlukan Supabase atau layanan cloud.
 
-## Status
-Tahap awal: kerangka PWA dan fondasi penyimpanan lokal. Fitur autentikasi dan data operasional akan dikembangkan bertahap.
+## Login dan akun
+- Saat pertama kali dibuka, perangkat meminta pembuatan akun Super Admin.
+- Super Admin membuat akun pengguna secara manual.
+- Tidak tersedia pendaftaran mandiri.
+- Password disimpan sebagai hash PBKDF2-SHA-256 dengan salt unik.
+- Super Admin dapat mengaktifkan/menonaktifkan akun dan reset password.
 
-## Catatan
-Login lokal pada satu perangkat tidak otomatis membagikan akun atau data ke perangkat lain. Sinkronisasi antarperangkat merupakan fitur terpisah dan opsional.
+## Catatan penting
+- Akun, sesi, dan data tersimpan pada browser/perangkat yang digunakan.
+- Akun dan data tidak otomatis tersinkron antarperangkat.
+- Gunakan HTTPS untuk instalasi PWA dan pastikan perangkat tepercaya.
+- Jangan hapus data situs/browser karena akan menghapus database lokal.
+- Modul login dan manajemen pengguna merupakan tahap awal. Modul observasi, monitoring, master data, dan ekspor laporan masih dalam pengembangan.
