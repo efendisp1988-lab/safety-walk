@@ -151,3 +151,17 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
 }
 
 .logo-upload-card{grid-column:1/-1}.logo-upload-card>label{display:block;font-size:11px;font-weight:700;margin:12px 0 7px}.logo-upload-card input[type=file]{width:100%;padding:12px;border:1px solid #dce6df;border-radius:10px;background:#fbfdfb;font:inherit;font-size:12px}.logo-preview{min-height:82px;margin-top:10px;border:1px dashed #cbd8ce;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:12px;color:#849087;font-size:12px}.logo-preview img{max-width:100%;max-height:90px;object-fit:contain}.logo-upload-card .report-actions{display:flex;flex-direction:row}
+
+/* Mobile: show one active module selector; keep dashboard and content within portrait viewport */
+.mobile-module-nav{display:none}
+@media(max-width:850px){
+ .app-body{display:block!important;width:100%!important;max-width:100%!important;min-width:0!important}
+ .sidebar{display:none!important}
+ .content-area{display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:14px!important;overflow-x:hidden!important}
+ .mobile-module-nav{display:grid;grid-template-columns:1fr;gap:6px;margin:0 0 14px;padding:10px 12px;background:#fff;border:1px solid #dfe8e2;border-radius:12px}
+ .mobile-module-nav label{font-size:10px;font-weight:700;color:#718078}
+ .mobile-module-nav select{width:100%;max-width:100%;min-width:0;border:1px solid #dce6df;border-radius:9px;background:#f7fbf8;padding:11px;font:inherit;font-size:13px;color:#244a36}
+ .page{width:100%;max-width:100%;min-width:0}
+ .page-heading{display:flex;flex-wrap:wrap;gap:10px}
+ #reportsPage .section-card{width:100%;max-width:100%;min-width:0}
+}
