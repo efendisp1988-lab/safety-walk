@@ -126,3 +126,26 @@
 .report-actions .primary-btn,.report-actions .secondary-btn{min-height:44px}
 @media(max-width:650px){.conditional-fields{grid-template-columns:1fr}.recommendation-entry{flex-direction:column}.report-controls{grid-template-columns:1fr}.report-actions{flex-direction:column}.report-actions button{width:100%}}
 @media print{.topbar,.sidebar,.page-heading button,.report-controls,.report-actions{display:none!important}.content-area{padding:0}.section-card{border:0;box-shadow:none}}
+
+/* Mobile report layout: prevent wide preview tables from stretching the whole app */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+.app-body,.app-body>* ,.content-area,.page,.section-card,.page-heading{min-width:0;max-width:100%;box-sizing:border-box}
+.content-area{overflow-x:hidden}
+#reportsPage{width:100%;min-width:0;overflow:hidden}
+#reportsPage .stat-grid{width:100%;min-width:0}
+#reportsPage .section-card{width:100%;min-width:0;overflow:hidden}
+#reportsPage .table-wrap,#reportPreview{display:block;width:100%;max-width:100%;min-width:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+#reportPreview table{width:100%;min-width:850px;border-collapse:collapse}
+#reportPreview th,#reportPreview td{white-space:normal;overflow-wrap:anywhere}
+@media(max-width:850px){
+ .app-body{display:flex;flex-direction:column;width:100%;max-width:100%;min-width:0}
+ .sidebar{width:100%;max-width:100%;min-width:0;box-sizing:border-box}
+ .content-area{width:100%;max-width:100%;min-width:0;margin:0;padding:20px 14px;overflow-x:hidden}
+ .topbar{width:100%;max-width:100%;box-sizing:border-box}
+}
+@media(max-width:480px){
+ #reportsPage .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #reportsPage .stat-card{min-width:0}
+ #reportsPage .report-controls{grid-template-columns:minmax(0,1fr)}
+ #reportsPage .report-actions{width:100%}
+}
