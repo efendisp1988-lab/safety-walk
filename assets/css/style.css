@@ -99,3 +99,9 @@
 .status-badge.closed{background:#eaf0fa;color:#456a9d}
 .status-badge.verified{background:#e3f5eb;color:#167143}
 @media(max-width:650px){.observation-form{grid-template-columns:1fr}.wide-field{grid-column:auto}.observation-filter{flex-direction:column}.observation-filter select{max-width:none}.form-actions{flex-direction:column-reverse}.form-actions button{width:100%}}
+
+.observation-details{margin-top:9px;padding:10px 12px;border-radius:9px;background:#f2f7f3;border-left:3px solid #7eae8c}
+.observation-details p{margin:3px 0;font-size:10px;color:#52675a;line-height:1.6}
+.observation-actions{display:flex;justify-content:flex-end;margin-top:10px}
+.workflow-action{background:#eaf4ed;border-color:#cfe3d4;color:#075b38;font-weight:800;padding:9px 13px}
+.workflow-action:hover{background:#dcefe2}
