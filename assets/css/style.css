@@ -63,3 +63,10 @@
  .sector-tags span{font-size:10px;padding:7px 10px}
  .visual-panel{padding-bottom:19px}
 }
+
+/* Sustainability motto beneath first-time Super Admin setup */
+.sustainability-tagline{margin:20px 0 2px;padding:16px 14px;text-align:center;border:1px solid #dcece1;border-radius:14px;background:linear-gradient(135deg,#f1f8f2,#fff8ed)}
+.sustainability-tagline strong{display:block;color:#075b38;font:800 14px Manrope,system-ui,sans-serif}
+.sustainability-tagline strong span{color:#e88925}
+.sustainability-tagline small{display:block;margin-top:7px;color:#64776b;font-size:11px;font-weight:700;letter-spacing:.25px}
+@media(max-width:850px){.sustainability-tagline{margin-top:17px;padding:14px 10px}.sustainability-tagline strong{font-size:13px}.sustainability-tagline small{font-size:10px}}
