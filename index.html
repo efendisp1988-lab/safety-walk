@@ -71,7 +71,7 @@
           <button class="side-link" data-page="reports"><span>▤</span> Laporan</button>
           <button class="side-link" data-page="master" id="settingsMenu" hidden><span>⚙</span> Pengaturan</button>
           <button class="side-link" data-page="users" id="usersMenu" hidden><span>♙</span> Manajemen Pengguna</button>
-          <button class="side-link" data-page="master" id="masterMenu" hidden><span>⚙</span> Master Data</button>
+          
           <div class="side-tip"><b>Safety starts with us.</b><p>Amati kondisi, lakukan tindakan, pastikan perbaikan.</p></div>
         </aside>
         <section class="content-area">
@@ -158,6 +158,8 @@
             <div class="master-grid">
               <div class="section-card master-card"><h3>Unit kerja</h3><p class="muted">Unit operasional yang tersedia dalam aplikasi.</p><form class="master-add" data-group="units"><input aria-label="Nama unit" placeholder="Contoh: Kebun" required maxlength="80"><button class="primary-btn" type="submit">Tambah</button></form><div id="masterUnits" class="master-list"></div></div>
               <div class="section-card master-card"><h3>Lokasi kerja</h3><p class="muted">Tambahkan afdeling, stasiun, area, gudang, atau lokasi lainnya.</p><form class="master-add" data-group="locations"><input aria-label="Nama lokasi" placeholder="Contoh: Stasiun Boiler" required maxlength="100"><button class="primary-btn" type="submit">Tambah</button></form><div id="masterLocations" class="master-list"></div></div>
+              <div class="section-card master-card"><h3>Divisi Kebun</h3><p class="muted">Daftar divisi yang dapat dipilih saat unit Kebun.</p><form class="master-add" data-group="divisions"><input aria-label="Nama divisi" placeholder="Contoh: Divisi 1" required maxlength="80"><button class="primary-btn" type="submit">Tambah</button></form><div id="masterDivisions" class="master-list"></div></div>
+              <div class="section-card master-card"><h3>Blok Kebun</h3><p class="muted">Daftar nomor atau kode blok kebun.</p><form class="master-add" data-group="blocks"><input aria-label="Nomor blok" placeholder="Contoh: A01" required maxlength="80"><button class="primary-btn" type="submit">Tambah</button></form><div id="masterBlocks" class="master-list"></div></div>
               <div class="section-card master-card"><h3>Unsafe Action</h3><p class="muted">Daftar perilaku atau tindakan tidak aman.</p><form class="master-add" data-group="unsafeAction"><input aria-label="Jenis Unsafe Action" placeholder="Tambah jenis Unsafe Action" required maxlength="160"><button class="primary-btn" type="submit">Tambah</button></form><div id="masterUnsafeAction" class="master-list"></div></div>
               <div class="section-card master-card"><h3>Unsafe Condition</h3><p class="muted">Daftar kondisi atau keadaan tidak aman.</p><form class="master-add" data-group="unsafeCondition"><input aria-label="Jenis Unsafe Condition" placeholder="Tambah jenis Unsafe Condition" required maxlength="160"><button class="primary-btn" type="submit">Tambah</button></form><div id="masterUnsafeCondition" class="master-list"></div></div>
             </div>
