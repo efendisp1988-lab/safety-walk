@@ -1,3 +1,11 @@
+// Register the offline app shell so Android Chrome can offer installation.
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js", { scope: "./" })
+      .catch(error => console.warn("Safety Walk offline registration failed:", error));
+  });
+}
+
 (()=>{"use strict";
 const $=id=>document.getElementById(id),db=window.SafetyWalkDB;
 let currentUser=null,masterData=null;
