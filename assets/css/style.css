@@ -48,3 +48,18 @@
 .workplace-photo:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#032d1dcc);pointer-events:none}
 .workplace-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 42%}
 @media(max-width:850px){.workplace-photo{height:clamp(135px,38vw,190px);margin:12px auto 0;border-radius:15px}.workplace-photo img{object-position:center 38%}.sector-tags{margin-top:9px}}
+
+/* Final login hero and K3 brand refinements */
+.brand-mark.gear-mark{display:grid;place-items:center}
+.brand-mark.gear-mark svg{display:block;width:72%;height:72%;color:#087342}
+.small-mark.gear-mark svg{width:76%;height:76%}
+.workplace-photo{height:auto;aspect-ratio:16/9;max-width:720px;background:#0a4c32}
+.workplace-photo:after{display:none}
+.workplace-photo img{width:100%;height:100%;object-fit:contain;object-position:center;background:#0a4c32}
+@media(max-width:850px){
+ .workplace-photo{height:auto;aspect-ratio:16/9;width:100%;max-width:100%;margin:13px auto 0;border-radius:14px;overflow:hidden}
+ .workplace-photo img{height:100%;width:100%;object-fit:contain;object-position:center}
+ .sector-tags{position:relative;margin-top:10px;gap:6px}
+ .sector-tags span{font-size:10px;padding:7px 10px}
+ .visual-panel{padding-bottom:19px}
+}
