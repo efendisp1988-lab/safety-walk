@@ -105,3 +105,24 @@
 .observation-actions{display:flex;justify-content:flex-end;margin-top:10px}
 .workflow-action{background:#eaf4ed;border-color:#cfe3d4;color:#075b38;font-weight:800;padding:9px 13px}
 .workflow-action:hover{background:#dcefe2}
+
+/* Activated modules, estate fields and multiple recommendations */
+.module-button{width:100%;border:0;text-align:left;cursor:pointer;color:inherit;font-family:inherit}
+.module-button:hover{outline:2px solid #c9e2d0;transform:translateY(-1px)}
+.conditional-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:14px;border:1px solid #dcece1;border-radius:12px;background:#f7fbf8}
+.conditional-fields label{display:grid;gap:7px;font-size:11px;font-weight:700;color:#34483d}
+.conditional-fields input{width:100%;border:1px solid #dce6df;background:#fff;border-radius:10px;padding:12px;font:inherit;font-size:12px}
+.recommendation-box>label{display:block;font-size:11px;font-weight:700;color:#34483d;margin-bottom:8px}
+.recommendation-entry{display:flex;gap:8px}
+.recommendation-entry input{flex:1;min-width:0;border:1px solid #dce6df;background:#fbfdfb;border-radius:10px;padding:12px;font:inherit;font-size:12px}
+.recommendation-entry button{white-space:nowrap}
+.recommendation-list{display:grid;gap:7px;margin-top:10px}
+.recommendation-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 11px;border:1px solid #e4ece6;border-radius:9px;background:#f7faf8;font-size:11px;color:#40564a}
+.recommendation-item span{overflow-wrap:anywhere}
+.report-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
+.report-controls label{display:grid;gap:7px;font-size:11px;font-weight:700;color:#34483d}
+.report-controls input{border:1px solid #dce6df;border-radius:10px;padding:12px;background:#fbfdfb;font:inherit;font-size:12px}
+.report-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.report-actions .primary-btn,.report-actions .secondary-btn{min-height:44px}
+@media(max-width:650px){.conditional-fields{grid-template-columns:1fr}.recommendation-entry{flex-direction:column}.report-controls{grid-template-columns:1fr}.report-actions{flex-direction:column}.report-actions button{width:100%}}
+@media print{.topbar,.sidebar,.page-heading button,.report-controls,.report-actions{display:none!important}.content-area{padding:0}.section-card{border:0;box-shadow:none}}
