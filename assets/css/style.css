@@ -70,3 +70,32 @@
 .sustainability-tagline strong span{color:#e88925}
 .sustainability-tagline small{display:block;margin-top:7px;color:#64776b;font-size:11px;font-weight:700;letter-spacing:.25px}
 @media(max-width:850px){.sustainability-tagline{margin-top:17px;padding:14px 10px}.sustainability-tagline strong{font-size:13px}.sustainability-tagline small{font-size:10px}}
+
+/* Form Observasi K3 */
+.observation-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.observation-form label{display:grid;gap:7px;font-size:11px;font-weight:700;color:#34483d;min-width:0}
+.observation-form input,.observation-form select,.observation-form textarea,.observation-filter input,.observation-filter select{width:100%;min-width:0;border:1px solid #dce6df;background:#fbfdfb;border-radius:10px;padding:12px;color:#1b3025;font:inherit;font-size:12px;outline:none}
+.observation-form input:focus,.observation-form select:focus,.observation-form textarea:focus,.observation-filter input:focus{border-color:#31845c;box-shadow:0 0 0 3px #31845c18}
+.observation-form input[readonly]{background:#f0f5f1;color:#617469}
+.observation-form textarea{resize:vertical;line-height:1.5}
+.wide-field{grid-column:1/-1}
+.photo-field{display:grid;gap:7px;padding:13px;border:1px dashed #cbdcd0;border-radius:12px;background:#f8fbf8;min-width:0}
+.photo-field label{font-weight:700;font-size:11px}
+.photo-field input{padding:8px;background:#fff}
+.photo-field small{font-size:10px;color:#819087}
+.photo-preview{width:100%;max-height:190px;object-fit:contain;border-radius:9px;background:#eaf1ec}
+.form-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:6px}
+.secondary-btn{border:1px solid #dce6df;background:#fff;color:#52665a;padding:12px 18px;border-radius:10px;font-weight:700}
+.observation-filter{display:flex;gap:9px;margin-bottom:14px}
+.observation-filter input{flex:1}
+.observation-filter select{max-width:170px}
+.observation-list{display:grid;gap:10px}
+.observation-item{padding:14px;border:1px solid #e7eee9;border-radius:12px;background:#fbfdfb}
+.observation-item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.observation-item strong{display:block;font-size:12px;color:#174a30}
+.observation-item small{display:block;font-size:10px;color:#8a9990;margin-top:4px}
+.observation-item p{font-size:11px;line-height:1.6;color:#43564a;margin:12px 0 8px;overflow-wrap:anywhere}
+.observation-meta{font-size:10px;color:#829188}
+.status-badge.closed{background:#eaf0fa;color:#456a9d}
+.status-badge.verified{background:#e3f5eb;color:#167143}
+@media(max-width:650px){.observation-form{grid-template-columns:1fr}.wide-field{grid-column:auto}.observation-filter{flex-direction:column}.observation-filter select{max-width:none}.form-actions{flex-direction:column-reverse}.form-actions button{width:100%}}
