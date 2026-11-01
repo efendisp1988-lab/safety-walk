@@ -1,1 +1,112 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#123b2b"><title>Safety Walk</title><link rel="manifest" href="./manifest.json"><link rel="stylesheet" href="./assets/css/style.css"></head><body><main class="app"><header><div class="logo">SW</div><div><small>APLIKASI OBSERVASI K3</small><h1>Safety Walk</h1></div><span id="net">Offline-ready</span></header><section class="card"><small>SELAMAT DATANG</small><h2>Masuk ke Safety Walk</h2><p>Gunakan akun lokal yang dibuat oleh Super Admin.</p><form id="login"><label>Username<input id="username" autocomplete="username" required></label><label>Password<input id="password" type="password" autocomplete="current-password" required></label><button>Masuk</button></form><p class="note">Modul akun lokal akan diaktifkan pada tahap berikutnya.</p></section><nav><button class="active" data-page="dashboard">Dashboard</button><button data-page="observasi">Safety Walk</button><button data-page="monitoring">Monitoring</button><button data-page="laporan">Laporan</button></nav><section id="dashboard" class="card"><small>RINGKASAN</small><h2>Dashboard</h2><div class="stats"><div>Total Observasi<strong>0</strong></div><div>Temuan Open<strong>0</strong></div><div>Dalam Proses<strong>0</strong></div><div>Verified<strong>0</strong></div></div></section><section id="observasi" class="card" hidden><h2>Formulir Observasi K3</h2><p>Formulir akan dikembangkan pada tahap berikutnya.</p></section><section id="monitoring" class="card" hidden><h2>Monitoring Temuan</h2></section><section id="laporan" class="card" hidden><h2>Laporan</h2><p>Ekspor PDF dan Excel akan ditambahkan.</p></section><footer>Safety Walk · Offline-first</footer></main><script src="./assets/js/database.js"></script><script src="./assets/js/app.js"></script><script>if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js'));</script></body></html>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#075b38">
+  <meta name="description" content="Safety Walk - Aplikasi Observasi dan Monitoring K3">
+  <title>Safety Walk</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <main class="shell">
+    <section id="authView" class="auth-layout">
+      <div class="visual-panel">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true">✓</div>
+          <div><span class="eyebrow">APLIKASI OBSERVASI &amp; MONITORING K3</span><h1>SAFETY<span>WALK</span></h1></div>
+        </div>
+        <p class="visual-caption">Bangun budaya kerja aman melalui observasi, tindakan, dan perbaikan berkelanjutan.</p>
+        <div class="workplace-scene" aria-hidden="true">
+          <div class="sun"></div><div class="palm palm-one">🌴</div><div class="palm palm-two">🌴</div>
+          <div class="facility"><div class="stack"></div><div class="facility-label">PKS</div><div class="tank tank-one"></div><div class="tank tank-two"></div></div>
+          <div class="worker worker-one"><span>👷</span><small>KEBUN</small></div>
+          <div class="worker worker-two"><span>👩‍🏭</span><small>OPERASIONAL</small></div>
+          <div class="worker worker-three"><span>👷🏻‍♀️</span><small>HSE</small></div>
+          <div class="ground"></div>
+        </div>
+        <div class="sector-tags"><span>🌱 Kebun</span><span>🏭 PKS</span><span>🛢️ Bulking</span><span>🛠️ Workshop</span></div>
+        <div class="visual-foot"><span class="signal-dot"></span> Dirancang untuk penggunaan offline</div>
+      </div>
+
+      <div class="auth-panel">
+        <div class="mobile-brand"><div class="brand-mark">✓</div><div><b>SAFETY<span>WALK</span></b><small>Observasi &amp; Monitoring K3</small></div></div>
+        <div id="setupCard" class="auth-card" hidden>
+          <span class="step-label">PENGATURAN AWAL</span>
+          <h2>Buat akun Super Admin</h2>
+          <p class="muted">Ini adalah perangkat baru. Buat akun administrator pertama untuk mengelola pengguna dan master data.</p>
+          <form id="setupForm" autocomplete="off">
+            <label>Nama lengkap<input id="setupName" required maxlength="80" placeholder="Nama Super Admin"></label>
+            <label>Username<input id="setupUsername" required minlength="4" maxlength="32" autocomplete="username" placeholder="Contoh: admin"></label>
+            <label>Password<input id="setupPassword" type="password" required minlength="8" autocomplete="new-password" placeholder="Minimal 8 karakter"></label>
+            <label>Ulangi password<input id="setupConfirm" type="password" required minlength="8" autocomplete="new-password" placeholder="Ketik ulang password"></label>
+            <button class="primary-btn" type="submit">Buat Super Admin <span>→</span></button>
+          </form>
+          <div id="setupMessage" class="message" role="status"></div>
+          <p class="security-note">🔒 Akun disimpan di perangkat ini. Tidak ada pendaftaran publik.</p>
+        </div>
+
+        <div id="loginCard" class="auth-card" hidden>
+          <span class="step-label">SELAMAT DATANG KEMBALI</span>
+          <h2>Masuk ke Safety Walk</h2>
+          <p class="muted">Gunakan akun yang telah dibuat oleh Super Admin.</p>
+          <form id="loginForm" autocomplete="on">
+            <label>Username<input id="loginUsername" required autocomplete="username" placeholder="Masukkan username"></label>
+            <label>Password<div class="password-wrap"><input id="loginPassword" type="password" required autocomplete="current-password" placeholder="Masukkan password"><button type="button" class="eye-btn" id="togglePassword" aria-label="Tampilkan password">◉</button></div></label>
+            <button class="primary-btn" type="submit">Masuk <span>→</span></button>
+          </form>
+          <div id="loginMessage" class="message" role="status"></div>
+          <div class="offline-note"><span>●</span><div><b>Offline Mode</b><small>Data tersimpan secara lokal di perangkat ini.</small></div></div>
+        </div>
+        <p class="copyright">SAFETY WALK <span>•</span> WORK SAFELY, GO HOME SAFELY</p>
+      </div>
+    </section>
+
+    <section id="appView" hidden>
+      <header class="topbar">
+        <div class="brand-inline"><div class="brand-mark small-mark">✓</div><div><b>SAFETY<span>WALK</span></b><small>Observasi &amp; Monitoring K3</small></div></div>
+        <div class="account-area"><span id="connectionState" class="connection"><i></i> Offline-ready</span><div class="account-chip"><span id="userInitial" class="avatar">A</span><span><b id="currentUser">Pengguna</b><small id="currentRole">User</small></span></div><button id="logoutBtn" class="logout-btn">Keluar</button></div>
+      </header>
+      <div class="app-body">
+        <aside class="sidebar">
+          <span class="side-caption">MENU UTAMA</span>
+          <button class="side-link active" data-page="dashboard"><span>▦</span> Dashboard</button>
+          <button class="side-link" data-page="users" id="usersMenu" hidden><span>♙</span> Manajemen Pengguna</button>
+          <div class="side-tip"><b>Safety starts with us.</b><p>Amati kondisi, lakukan tindakan, pastikan perbaikan.</p></div>
+        </aside>
+        <section class="content-area">
+          <section id="dashboardPage" class="page">
+            <div class="page-heading"><div><span class="step-label">RINGKASAN</span><h2>Dashboard</h2><p class="muted">Selamat bekerja dengan aman.</p></div><span class="date-pill" id="todayDate"></span></div>
+            <div class="welcome-banner"><div><span>SAFETY WALK</span><h3>Keselamatan adalah tanggung jawab kita bersama.</h3><p>Mulai dari melihat potensi bahaya, mencatat temuan, hingga memastikan tindakan perbaikan.</p></div><div class="banner-icon">✓</div></div>
+            <div class="stat-grid"><article class="stat-card"><span>Total Observasi</span><b id="statTotal">0</b><small>Seluruh catatan</small></article><article class="stat-card"><span>Temuan Open</span><b id="statOpen">0</b><small>Perlu tindak lanjut</small></article><article class="stat-card"><span>Dalam Proses</span><b id="statProgress">0</b><small>Sedang diperbaiki</small></article><article class="stat-card"><span>Verified</span><b id="statVerified">0</b><small>Telah diverifikasi</small></article></div>
+            <div class="section-card"><div><h3>Modul aplikasi</h3><p class="muted">Modul berikut akan diaktifkan pada tahap pengembangan selanjutnya.</p></div><div class="module-grid"><div class="module-item"><span>☑</span><b>Observasi K3</b><small>Unsafe Action &amp; Condition</small></div><div class="module-item"><span>↗</span><b>Monitoring Temuan</b><small>Tindak lanjut perbaikan</small></div><div class="module-item"><span>▤</span><b>Laporan</b><small>Ekspor PDF &amp; Excel</small></div><div class="module-item"><span>⚙</span><b>Pengaturan</b><small>Master data aplikasi</small></div></div></div>
+          </section>
+          <section id="usersPage" class="page" hidden>
+            <div class="page-heading"><div><span class="step-label">SUPER ADMIN</span><h2>Manajemen Pengguna</h2><p class="muted">Buat dan kelola akun yang dapat mengakses Safety Walk di perangkat ini.</p></div></div>
+            <div class="section-card">
+              <div class="section-title"><div><h3>Tambah pengguna</h3><p class="muted">Pengguna tidak dapat mendaftar sendiri.</p></div></div>
+              <form id="userForm" class="user-form">
+                <label>Nama lengkap<input id="newName" required maxlength="80" placeholder="Nama pengguna"></label>
+                <label>Username<input id="newUsername" required minlength="4" maxlength="32" placeholder="Username unik"></label>
+                <label>Password sementara<input id="newPassword" type="password" required minlength="8" placeholder="Minimal 8 karakter"></label>
+                <label>Peran<select id="newRole"><option value="user">Pengguna</option><option value="admin">Administrator</option></select></label>
+                <button class="primary-btn" type="submit">+ Tambah akun</button>
+              </form>
+              <div id="userMessage" class="message" role="status"></div>
+            </div>
+            <div class="section-card">
+              <div class="section-title"><div><h3>Daftar akun</h3><p class="muted">Akun yang dinonaktifkan tidak dapat masuk.</p></div><span id="userCount" class="count-pill">0 akun</span></div>
+              <div class="table-wrap"><table><thead><tr><th>Nama / Username</th><th>Peran</th><th>Status</th><th>Tindakan</th></tr></thead><tbody id="usersTable"><tr><td colspan="4" class="empty-state">Belum ada pengguna tambahan.</td></tr></tbody></table></div>
+            </div>
+            <div class="security-note">⚠️ Akun dan data pengguna tersimpan pada perangkat/browser ini. Gunakan perangkat tepercaya dan jangan hapus data browser jika ingin mempertahankan data lokal.</div>
+          </section>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="./assets/js/database.js"></script>
+  <script src="./assets/js/app.js"></script>
+  <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));}</script>
+</body>
+</html>
