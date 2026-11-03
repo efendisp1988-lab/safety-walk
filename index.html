@@ -34,6 +34,9 @@
             <label>Username<input id="setupUsername" required minlength="4" maxlength="32" autocomplete="username" placeholder="Contoh: admin"></label>
             <label>Password<input id="setupPassword" type="password" required minlength="8" autocomplete="new-password" placeholder="Minimal 8 karakter"></label>
             <label>Ulangi password<input id="setupConfirm" type="password" required minlength="8" autocomplete="new-password" placeholder="Ketik ulang password"></label>
+            <label>Kode pemulihan (minimal 8 karakter)<input id="setupRecovery" type="password" required minlength="8" autocomplete="new-password" placeholder="Buat kode pemulihan"></label>
+            <label>Ulangi kode pemulihan<input id="setupRecoveryConfirm" type="password" required minlength="8" autocomplete="new-password" placeholder="Ketik ulang kode pemulihan"></label>
+            <p class="muted">Simpan kode pemulihan di tempat aman. Kode ini diperlukan jika username atau password terlupa.</p>
             <button class="primary-btn" type="submit">Buat Super Admin <span>→</span></button>
           </form>
           <div id="setupMessage" class="message" role="status"></div>
@@ -51,6 +54,8 @@
             <button class="primary-btn" type="submit">Masuk <span>→</span></button>
           </form>
           <div id="loginMessage" class="message" role="status"></div>
+          <button type="button" class="secondary-btn" id="showRecoveryBtn">Lupa username / password?</button>
+          <div id="recoveryPanel" class="section-card" hidden><h3>Pemulihan Akun</h3><p class="muted">Masukkan kode pemulihan yang dibuat saat akun disiapkan atau diberikan oleh Super Admin.</p><form id="recoveryForm"><label>Kode pemulihan<input id="recoveryCode" type="password" required minlength="8" autocomplete="off"></label><label>Username baru (opsional)<input id="recoveryUsername" minlength="4" maxlength="32" autocomplete="username"></label><label>Password baru<input id="recoveryPassword" type="password" minlength="8" autocomplete="new-password"></label><label>Ulangi password baru<input id="recoveryPasswordConfirm" type="password" minlength="8" autocomplete="new-password"></label><button class="primary-btn" type="submit">Pulihkan Akun</button></form><div id="recoveryMessage" class="message" role="status"></div></div>
           <div class="offline-note"><span>●</span><div><b>Offline Mode</b><small>Data tersimpan secara lokal di perangkat ini.</small></div></div>
         </div>
         <p class="copyright">SAFETY WALK <span>•</span> WORK SAFELY, GO HOME SAFELY</p>
@@ -79,6 +84,7 @@
           <section id="dashboardPage" class="page">
             <div class="page-heading"><div><span class="step-label">RINGKASAN</span><h2>Dashboard</h2><p class="muted">Selamat bekerja dengan aman.</p></div><span class="date-pill" id="todayDate"></span></div>
             <div class="welcome-banner"><div><span>SAFETY WALK</span><h3>Keselamatan adalah tanggung jawab kita bersama.</h3><p>Mulai dari melihat potensi bahaya, mencatat temuan, hingga memastikan tindakan perbaikan.</p></div><div class="banner-icon">✓</div></div>
+            <div class="section-card"><h3>Keamanan Akun Saya</h3><p class="muted">Buat atau ganti kode pemulihan agar akun dapat dipulihkan jika username atau password terlupa.</p><form id="myRecoveryForm" class="user-form"><label>Kode pemulihan baru<input id="myRecoveryCode" type="password" required minlength="8" autocomplete="new-password"></label><label>Ulangi kode pemulihan<input id="myRecoveryConfirm" type="password" required minlength="8" autocomplete="new-password"></label><button class="primary-btn" type="submit">Simpan Kode Pemulihan</button></form><div id="myRecoveryMessage" class="message" role="status"></div></div>
             <div class="stat-grid"><article class="stat-card"><span>Total Observasi</span><b id="statTotal">0</b><small>Seluruh catatan</small></article><article class="stat-card"><span>Temuan Open</span><b id="statOpen">0</b><small>Perlu tindak lanjut</small></article><article class="stat-card"><span>Dalam Proses</span><b id="statProgress">0</b><small>Sedang diperbaiki</small></article><article class="stat-card"><span>Verified</span><b id="statVerified">0</b><small>Telah diverifikasi</small></article></div>
             <div class="section-card"><div><h3>Modul aplikasi</h3><p class="muted">Pilih modul untuk mulai bekerja.</p></div><div class="module-grid"><button type="button" class="module-item module-button" data-open-page="observations"><span>☑</span><b>Observasi K3</b><small>Unsafe Action &amp; Condition</small></button><button type="button" class="module-item module-button" data-open-page="monitoring"><span>↗</span><b>Monitoring Temuan</b><small>Tindak lanjut perbaikan</small></button><button type="button" class="module-item module-button" data-open-page="reports"><span>▤</span><b>Laporan</b><small>Ekspor data observasi</small></button><button type="button" class="module-item module-button" data-open-page="master"><span>⚙</span><b>Pengaturan</b><small>Master data aplikasi</small></button></div></div>
           </section>
@@ -143,6 +149,7 @@
                 <label>Nama lengkap<input id="newName" required maxlength="80" placeholder="Nama pengguna"></label>
                 <label>Username<input id="newUsername" required minlength="4" maxlength="32" placeholder="Username unik"></label>
                 <label>Password sementara<input id="newPassword" type="password" required minlength="8" placeholder="Minimal 8 karakter"></label>
+                <label>Kode pemulihan (minimal 8 karakter)<input id="newUserRecovery" type="password" required minlength="8" placeholder="Buat kode pemulihan pengguna"></label>
                 <label>Peran<select id="newRole"><option value="user">Pengguna</option><option value="admin">Administrator</option></select></label>
                 <button class="primary-btn" type="submit">+ Tambah akun</button>
               </form>
